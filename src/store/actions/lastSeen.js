@@ -4,7 +4,7 @@ export default {
   async getLastSeen({ commit, state }) {
     commit("startLoadingContent");
     await axios
-      .get(API_URL + "/lastseen", {
+      .get(API_URL + "lastseen", {
         headers: {
           Authorization: `Bearer ${state.token.token}`,
           "Access-Control-Allow-Origin": "*",
@@ -20,7 +20,7 @@ export default {
     commit("startLoadingContent");
     await axios
       .post(
-        API_URL + "/lastseen",
+        API_URL + "lastseen",
         { ...payload },
         {
           headers: {

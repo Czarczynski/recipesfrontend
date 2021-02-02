@@ -6,10 +6,18 @@
           Recommended
           <div class="big-card__title__small">(still in progress)</div>
         </div>
+      </div>
 
-        <div class="big-card__top-section__card">
-          <recipe v-for="(item, key) in recommended " :key="key" :item="{image: item.imageUrl, ...item, isFav: favList.includes(item.recipeId)}"/>
-        </div>
+      <div class="big-card__top-section__card">
+        <recipe
+          v-for="(item, key) in recommended"
+          :key="key"
+          :item="{
+            image: item.imageUrl,
+            ...item,
+            isFav: favList.includes(item.recipeId),
+          }"
+        />
       </div>
     </div>
 
@@ -20,7 +28,11 @@
       </div>
 
       <div class="big-card__top-section__card">
-        <recipe v-for="(item, key) in favourites.slice(0, 4) " :key="key" :item="{image: item.imageUrl, id:item.recipeId, ...item, isFav: true}"/>
+        <recipe
+          v-for="(item, key) in favourites.slice(0, 4)"
+          :key="key"
+          :item="{ image: item.imageUrl, id: item.recipeId, ...item, isFav: true }"
+        />
       </div>
     </div>
 
@@ -34,7 +46,12 @@
         <recipe
           v-for="(item, key) in lastSeen.slice(0, 4)"
           :key="key"
-          :item="{ image: item.imageUrl, id:item.recipeId, ...item, isFav: favList.includes(item.recipeId) }"
+          :item="{
+            image: item.imageUrl,
+            id: item.recipeId,
+            ...item,
+            isFav: favList.includes(item.recipeId),
+          }"
         />
       </div>
     </div>
@@ -44,23 +61,21 @@
 <script>
 import RecipeCard from "./RecipeCard";
 import { mapState, mapActions } from "vuex";
-import recommended from "@/recRecipes.json"
+import recommended from "@/recRecipes.json";
 export default {
   async created() {
     await this.getFavourites();
     await this.getLastSeen();
-    
-  
   },
   data: () => ({ loading: true, recommended }),
   methods: {
     ...mapActions(["getFavourites", "getLastSeen"]),
-    goFavourites(){
-      this.$router.push({name:"Favourites"});
+    goFavourites() {
+      this.$router.push({ name: "Favourites" });
     },
-    goHistory(){
-      this.$router.push({name:"History"});
-    }
+    goHistory() {
+      this.$router.push({ name: "History" });
+    },
   },
   components: {
     recipe: RecipeCard,
@@ -68,22 +83,22 @@ export default {
   computed: mapState({
     favourites: (state) => state.user.favourites,
     lastSeen: (state) => state.user.lastSeen,
-    favList: (state) => state.user.favourites.map(({ recipeId }) => recipeId)
+    favList: (state) => state.user.favourites.map(({ recipeId }) => recipeId),
   }),
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/styles/styles.scss";
-.small-link{
+.small-link {
   text-decoration: underline;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }
 .big-card {
   min-width: 1000px;
-  margin:  0 20px 20px 20px;
+  margin: 0 20px 20px 20px;
   &__title {
     display: flex;
     justify-content: left;

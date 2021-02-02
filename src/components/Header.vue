@@ -37,23 +37,23 @@ export default {
       this.goHome();
     },
     goHome() {
-      if (this.$route.path != "/") this.$router.push({ name: "Home" });
+      if (this.$route.path != "/recipesfrontend/") this.$router.push({ name: "Home" });
     },
     goBrowseRecepies() {
-      if (this.$route.path != "/recipes") this.$router.push({ name: "Browse Recipe" });
+      if (this.$route.path != "/recipesfrontend/recipes") this.$router.push({ name: "Browse Recipe" });
     },
     goLogin() {
-      if (this.$route.path != "/login") this.$router.push({ name: "Login" });
+      if (this.$route.path != "/recipesfrontend/login") this.$router.push({ name: "Login" });
     },
     goRegister() {
-      if (this.$route.path != "/login/register")
+      if (this.$route.path != "/recipesfrontend/login/register")
         this.$router.push({ name: "Register", params: { isRegister: "register" } });
     },
     goProfile() {
-      if (this.$route.path != "/profile") this.$router.push({ name: "Profile" });
+      if (this.$route.path != "/recipesfrontend/profile") this.$router.push({ name: "Profile" });
     },
     goFavourites() {
-      if (this.$route.path != "/favourites") this.$router.push({ name: "Favourites" });
+      if (this.$route.path != "/recipesfrontend/favourites") this.$router.push({ name: "Favourites" });
     },
   },
 };

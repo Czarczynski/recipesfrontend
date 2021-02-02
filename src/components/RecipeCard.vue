@@ -9,8 +9,6 @@
     <img @click="goFullRecipe" class="recipe__image" :src="item.image" />
     <div @click="goFullRecipe" class="recipe__title">
       <span class="hyperlink">{{ item.title }}</span>
-      <!-- <fa-icons :icon="['fas','star']"/>
-      <fa-icons :icon="['far','star']"/> -->
     </div>
   </div>
 </template>
