@@ -8,7 +8,7 @@
         </div>
 
         <div class="big-card__top-section__card">
-          <recipe v-for="(item, key) in recommended " :key="key" :item="{image: item.imageUrl, ...item, isFav: true}"/>
+          <recipe v-for="(item, key) in recommended " :key="key" :item="{image: item.imageUrl, ...item, isFav: favList.includes(item.recipeId)}"/>
         </div>
       </div>
     </div>
