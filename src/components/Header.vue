@@ -6,7 +6,9 @@
     </div>
     <div v-if="token.token == null" class="header__buttons">
       <button class="header__buttons__single" @click="goLogin">Login</button>
-      <button class="header__buttons__single" @click="goRegister">Register</button>
+      <button class="header__buttons__single" @click="goRegister">
+        Register
+      </button>
     </div>
     <div v-else class="header__buttons">
       <button class="header__buttons__single" @click="goHome">Home</button>
@@ -14,8 +16,12 @@
       <button class="header__buttons__single" @click="goBrowseRecepies">
         Browse recepies
       </button>
-      <button class="header__buttons__single" @click="goFavourites">My Favourites</button>
-      <button class="header__buttons__single" @click="goProfile">Profile</button>
+      <button class="header__buttons__single" @click="goFavourites">
+        My Favourites
+      </button>
+      <button class="header__buttons__single" @click="goProfile">
+        Profile
+      </button>
       <button class="logout-button" @click="logout">Logout</button>
     </div>
   </div>
@@ -37,23 +43,29 @@ export default {
       this.goHome();
     },
     goHome() {
-      if (this.$route.path != "/recipesfrontend/") this.$router.push({ name: "Home" });
+      if (this.$route.path != "/") this.$router.push({ name: "Home" });
     },
     goBrowseRecepies() {
-      if (this.$route.path != "/recipesfrontend/recipes") this.$router.push({ name: "Browse Recipe" });
+      if (this.$route.path != "/recipes")
+        this.$router.push({ name: "Browse Recipe" });
     },
     goLogin() {
-      if (this.$route.path != "/recipesfrontend/login") this.$router.push({ name: "Login" });
+      if (this.$route.path != "/login") this.$router.push({ name: "Login" });
     },
     goRegister() {
-      if (this.$route.path != "/recipesfrontend/login/register")
-        this.$router.push({ name: "Register", params: { isRegister: "register" } });
+      if (this.$route.path != "/login/register")
+        this.$router.push({
+          name: "Register",
+          params: { isRegister: "register" },
+        });
     },
     goProfile() {
-      if (this.$route.path != "/recipesfrontend/profile") this.$router.push({ name: "Profile" });
+      if (this.$route.path != "/profile")
+        this.$router.push({ name: "Profile" });
     },
     goFavourites() {
-      if (this.$route.path != "/recipesfrontend/favourites") this.$router.push({ name: "Favourites" });
+      if (this.$route.path != "/favourites")
+        this.$router.push({ name: "Favourites" });
     },
   },
 };
@@ -82,14 +94,14 @@ export default {
   }
 }
 .header {
-  z-index:25;
-  position:fixed;
-  top:0;
+  z-index: 25;
+  position: fixed;
+  top: 0;
   margin: 0;
   display: flex;
   height: 73px;
   padding: 0 30px;
-  width: calc(100vW - 60px);
+  width: calc(100vw - 60px);
   align-items: center;
   justify-content: space-between;
   background-color: $bg-color;
@@ -97,7 +109,7 @@ export default {
   &__title {
     display: flex;
     align-items: center;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
     &__icon {

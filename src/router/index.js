@@ -11,49 +11,49 @@ import PageNotFound from "../views/404";
 Vue.use(Router);
 const routes = [
   {
-    path: "/recipesfrontend/",
+    path: "/",
     name: "Home",
     props: true,
     component: Home,
   },
   {
-    path: "/recipesfrontend/recipes",
+    path: "/recipes",
     props: true,
     name: "Browse Recipe",
     component: BrowseRecipe,
   },
   {
-    path: "/recipesfrontend/login",
+    path: "/login",
     props: true,
     name: "Login",
     component: Login,
   },
   {
-    path: "/recipesfrontend/login/:isRegister",
+    path: "/login/:isRegister",
     props: true,
     name: "Register",
     component: Login,
   },
   {
-    path: "/recipesfrontend/recipes/:id",
+    path: "/recipes/:id",
     props: true,
     name: "Recipe",
     component: Recipe,
   },
   {
-    path: "/recipesfrontend/profile",
+    path: "/profile",
     props: true,
     name: "Profile",
     component: Profile,
   },
   {
-    path: "/recipesfrontend/favourites",
+    path: "/favourites",
     props: true,
     name: "Favourites",
     component: Favourites,
   },
   {
-    path: "/recipesfrontend/history",
+    path: "/history",
     props: true,
     name: "History",
     component: History,
